@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Queue.h"
 #define STACK_INIT_SIZE 2
 
@@ -30,7 +31,7 @@ void Queue<LNode, ElemType>::ClearQueue()
 	{
 		q = p;
 		p = p->next;
-		free(q);
+		delete(q);
 	}
 }
 

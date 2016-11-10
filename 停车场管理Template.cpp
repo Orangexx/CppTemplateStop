@@ -1,4 +1,4 @@
-// Í£³µ³¡¹ÜÀíC++STL.cpp : ¶¨Òå¿ØÖÆÌ¨Ó¦ÓÃ³ÌĞòµÄÈë¿Úµã¡£
+// åœè½¦åœºç®¡ç†C++STL.cpp : å®šä¹‰æ§åˆ¶å°åº”ç”¨ç¨‹åºçš„å…¥å£ç‚¹ã€‚
 //
 
 #include "stdafx.h"
@@ -40,35 +40,35 @@ int main()
 	while (true)
 	{
 		car e;
-		cout << "ÇëÊäÈë³µÅÆºÅÂë" << endl;
+		cout << "è¯·è¾“å…¥è½¦ç‰Œå·ç " << endl;
 		cin >> e.carnumber;
 
 		while (true)
 		{
-			cout << "ÇëÊäÈë³µÁ¾ÒªÖ´ĞĞµÄ¶¯×÷:" << endl;
+			cout << "è¯·è¾“å…¥è½¦è¾†è¦æ‰§è¡Œçš„åŠ¨ä½œ:" << endl;
 			cin >> e.status;
 
-			if (e.status == "µ½´ï")
+			if (e.status == "åˆ°è¾¾")
 			{
-				cout << "ÇëÊäÈëÊ±¼ä(ÔÂÈÕÊ±·Ö Èç01222301):";
+				cout << "è¯·è¾“å…¥æ—¶é—´(æœˆæ—¥æ—¶åˆ† å¦‚01222301):";
 				cin >> e.arrive;
 				break;
 			}
-			else if (e.status == "Àë¿ª")
+			else if (e.status == "ç¦»å¼€")
 			{
-				cout << "ÇëÊäÈëÊ±¼ä(ÔÂÈÕÊ±·Ö Èç01222301):";
+				cout << "è¯·è¾“å…¥æ—¶é—´(æœˆæ—¥æ—¶åˆ† å¦‚01222301):";
 				cin >> e.left;
 				break;
 			}
 			else
 			{
-				cout << "²»ºÃÒâË¼,Çë°´ÕÕ¸ñÊ½ÊäÈë³µÁ¾¶¯×÷" << endl;
+				cout << "ä¸å¥½æ„æ€,è¯·æŒ‰ç…§æ ¼å¼è¾“å…¥è½¦è¾†åŠ¨ä½œ" << endl;
 			}
 		}
 
 		handle(e, Stop, Temp, Queue);
 
-		cout << "°´¡°A¡±¼üÍË³ö °´ÆäÓà¼ü¼ÌĞø²Ù×÷" << endl;
+		cout << "æŒ‰â€œAâ€é”®é€€å‡º æŒ‰å…¶ä½™é”®ç»§ç»­æ“ä½œ" << endl;
 		char a;
 		cin >> a;
 		if (a == 'A' || a == 'a')
@@ -78,20 +78,20 @@ int main()
 
 void handle(car &e, Stack<car> &Stop, Stack<car> &Temp, Queue<QNode, car> &Queue)
 {
-	if (e.status == "µ½´ï")
+	if (e.status == "åˆ°è¾¾")
 	{
 		if (Stop.StackLength() >= Stop.stacksize)
 		{
 			if (Queue.QueueLength() >= MAXSIZE)
 			{
-				cout << "²»ºÃÒâË¼,Ã»ÓĞÎ»ÖÃÁË" << endl;
+				cout << "ä¸å¥½æ„æ€,æ²¡æœ‰ä½ç½®äº†" << endl;
 				return;
 			}
 
 			else
 			{
 				Queue.EnQueue(e);
-				cout << "ÕıÔÚÅÅ¶ÓÖĞ£¬µÚ" << Queue.QueueLength() << "ºÅ" << endl;
+				cout << "æ­£åœ¨æ’é˜Ÿä¸­ï¼Œç¬¬" << Queue.QueueLength() << "å·" << endl;
 				return;
 			}
 		}
@@ -100,12 +100,12 @@ void handle(car &e, Stack<car> &Stop, Stack<car> &Temp, Queue<QNode, car> &Queue
 		{
 			Stop.Push(e);
 
-			cout << "ÇëÊ»ÈëµÚ" << Stop.StackLength() << "ºÅ³µÎ»" << endl;
+			cout << "è¯·é©¶å…¥ç¬¬" << Stop.StackLength() << "å·è½¦ä½" << endl;
 			return;
 		}
 	}
 
-	else if (e.status == "Àë¿ª")
+	else if (e.status == "ç¦»å¼€")
 	{
 		car a;
 
@@ -113,7 +113,7 @@ void handle(car &e, Stack<car> &Stop, Stack<car> &Temp, Queue<QNode, car> &Queue
 
 		if (Stop.StackEmpty())
 		{
-			cout << "²»ºÃÒâË¼£¬Í£³µ³¡Îª¿Õ Ñ°²»µ½ËùËµ³µÁ¾" << endl;
+			cout << "ä¸å¥½æ„æ€ï¼Œåœè½¦åœºä¸ºç©º å¯»ä¸åˆ°æ‰€è¯´è½¦è¾†" << endl;
 			return;
 		}
 
@@ -125,7 +125,7 @@ void handle(car &e, Stack<car> &Stop, Stack<car> &Temp, Queue<QNode, car> &Queue
 		}
 
 		if (a.carnumber != e.carnumber)
-			cout << "²»ºÃÒâË¼£¬Í£³µ³¡ÖĞÃ»ÓĞ´ËÁ¾³µ" << endl;
+			cout << "ä¸å¥½æ„æ€ï¼Œåœè½¦åœºä¸­æ²¡æœ‰æ­¤è¾†è½¦" << endl;
 
 		int left = e.left;
 		Temp.Pop(e);
@@ -139,9 +139,9 @@ void handle(car &e, Stack<car> &Stop, Stack<car> &Temp, Queue<QNode, car> &Queue
 
 		int Price;
 		Price = e.left - e.arrive;
-		cout << "µ½´ïÈÕÆÚ:" << e.arrive << endl;
-		cout << "Àë¿ªÈÕÆÚ:" << e.left << endl;
-		cout << "ÇëÖ§¸¶:" << Price << "Ôª" << endl;
+		cout << "åˆ°è¾¾æ—¥æœŸ:" << e.arrive << endl;
+		cout << "ç¦»å¼€æ—¥æœŸ:" << e.left << endl;
+		cout << "è¯·æ”¯ä»˜:" << Price << "å…ƒ" << endl;
 
 		if (!Queue.QueueEmpty())
 		{
@@ -149,7 +149,7 @@ void handle(car &e, Stack<car> &Stop, Stack<car> &Temp, Queue<QNode, car> &Queue
 			b.arrive = e.left;
 			Queue.DeQueue(b);
 			Stop.Push(b);
-			cout << b.carnumber << "ºÅ³µÒÑÊ»ÈëÍ£³µ³¡" << endl;
+			cout << b.carnumber << "å·è½¦å·²é©¶å…¥åœè½¦åœº" << endl;
 		}
 	}
 }
